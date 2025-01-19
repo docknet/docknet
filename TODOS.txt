@@ -1,0 +1,2 @@
+1. Adapt server container to expect the project to be in a directory whose name is the project name.
+2. .env file with all variables (like the project name). Will be used for both scripts and docker-compose.

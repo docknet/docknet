@@ -1,0 +1,6 @@
+/*
+!.gitignore
+!docker-compose.yml
+!dotnet.sh
+!local-infra/
+!TODOS.txt
