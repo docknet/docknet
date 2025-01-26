@@ -1,3 +1,2 @@
-1. Fix why server doesn't find the executable name. (Container may be wrongly built, rebuild it in a new local branch on this repo)
-2. Adapt server container to expect the project to be in a directory whose name is the project name.
-3. Upgrade dotnet version
+1. Upgrade dotnet version.
+3. Implement remaining dotnet commands.
