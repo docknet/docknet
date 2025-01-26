@@ -1,2 +1,3 @@
-1. Adapt server container to expect the project to be in a directory whose name is the project name.
-2. .env file with all variables (like the project name). Will be used for both scripts and docker-compose.
+1. Fix why server doesn't find the executable name. (Container may be wrongly built, rebuild it in a new local branch on this repo)
+2. Adapt server container to expect the project to be in a directory whose name is the project name.
+3. Upgrade dotnet version

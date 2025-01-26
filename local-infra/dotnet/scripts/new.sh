@@ -1,11 +1,17 @@
 #!/bin/bash
 
-# TODO: Override project name to the one set in a ".env" file
+# Enable importing of environment variables.
+set -a;
+# Import environment variables.
+source .env;
+# Disable importing of environment variables.
+set +a;
 
 # Check if the sdk is up
 if [ "$(docker ps -q -f name=sdk)" ]; then
     # Execute command in SDK container with the received arguments
-    docker exec -it sdk dotnet new "$@";
+    # and .env variables.
+    docker exec -it sdk dotnet new $1 --name ${PROJECT_NAME};
     exit 0;
 fi
 
@@ -15,5 +21,6 @@ echo $'Starting SDK...\n';
 docker-compose up -d sdk;
 echo $'\nSDK successfully built!\n';
 # Execute command in SDK container with the received arguments
-docker exec -it sdk dotnet new "$@";
+# and .env variables.
+docker exec -it sdk dotnet new $1 --name ${PROJECT_NAME};
 exit 0;

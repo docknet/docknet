@@ -12,17 +12,17 @@ services:
       - postgres-data:/var/lib/postgresql/data
     networks:
       - main-network
-  # TODO: use .env file for all variables
+
   server:
     image: 6daniel32/dotnet-sdk-server
     container_name: server
     build:
-      context: .
+      context: ./${PROJECT_NAME}
       args:
-        CONFIGURATION: Release
-        EXECUTABLE_NAME: Binary
+        CONFIGURATION: ${CONFIGURATION}
+        PROJECT_NAME: ${PROJECT_NAME}
     environment:
-      - EXECUTABLE_NAME=Binary
+      - PROJECT_NAME=${PROJECT_NAME}
     ports:
       - "5000:8080"
     networks:

@@ -1,4 +1,5 @@
 /*
+!.env.example
 !.gitignore
 !docker-compose.yml
 !dotnet.sh
