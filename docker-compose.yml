@@ -17,7 +17,7 @@ services:
     image: 6daniel32/dotnet-sdk-server
     container_name: server
     build:
-      context: ./${PROJECT_NAME}
+      context: .
       args:
         CONFIGURATION: ${CONFIGURATION}
         PROJECT_NAME: ${PROJECT_NAME}
