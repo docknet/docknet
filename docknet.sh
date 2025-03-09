@@ -4,11 +4,11 @@
 case $1 in
 
   run)
-    source ./local-infra/dotnet/scripts/run.sh
+    source ./local-infra/docknet/scripts/run.sh
     ;;
 
-  restore).
-    echo 'WIP, run in SDK container'
+  restore)
+    source ./local-infra/docknet/scripts/restore.sh
     ;;
 
   new)
@@ -16,8 +16,8 @@ case $1 in
     # ($1="new")
     shift
     # Execute the script with the remaining parameters 
-    # (arguments for "dotnet new")
-    source ./local-infra/dotnet/scripts/new.sh "$@"
+    # (arguments for "docknet new")
+    source ./local-infra/docknet/scripts/new.sh "$@"
     ;;
 
   watch)
@@ -28,7 +28,7 @@ case $1 in
     echo 'WIP' 
     ;;
 
-  add-package)
+  add package)
     echo 'WIP' 
     ;;
 
@@ -37,7 +37,7 @@ case $1 in
     ;;
 
   *)
-    echo "Please, specify a valid dotnet command"
+    echo "Please, specify a valid docknet command"
     ;;
 esac
 

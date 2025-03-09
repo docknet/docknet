@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Enable importing of environment variables.
+# Enable importation of environment variables.
 set -a;
 # Import environment variables.
 source .env;
-# Disable importing of environment variables.
+# Disable importation of environment variables.
 set +a;
 
 # Check if the sdk is up
