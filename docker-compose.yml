@@ -17,7 +17,7 @@ services:
     container_name: server
     build:
       context: .
-      dockerfile: ./local-infra/dotnet/containers/Dockerfile.server
+      dockerfile: ./local-infra/docknet/containers/Dockerfile.server
       # When working with docker compose, args are only
       # avaiable in the build context and not in the runtime.
       args:
@@ -37,7 +37,7 @@ services:
     container_name: sdk
     build:
       context: .
-      dockerfile: ./local-infra/dotnet/containers/Dockerfile.sdk
+      dockerfile: ./local-infra/docknet/containers/Dockerfile.sdk
     volumes:
       - .:/app
 
