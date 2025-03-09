@@ -2,6 +2,6 @@
 !.env.example
 !.gitignore
 !docker-compose.yml
-!dotnet.sh
+!docknet.sh
 !local-infra/
 !TODOS.txt
