@@ -28,8 +28,13 @@ case $1 in
     echo 'WIP' 
     ;;
 
-  add package)
-    echo 'WIP' 
+  add)
+    # Delete the first parameter from the script invocation 
+    # ($1="add")
+    shift
+    # Execute the script with the remaining parameters 
+    # (arguments for "docknet add")
+    source ./local-infra/docknet/scripts/add.sh "$@"
     ;;
 
   ef)
