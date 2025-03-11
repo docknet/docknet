@@ -9,9 +9,9 @@ set +a;
 
 # Check if the sdk is up
 if [ "$(docker ps -q -f name=sdk)" ]; then
-    # Execute command in SDK container.
-    docker exec -it sdk dotnet restore ${PROJECT_NAME};
-    exit 0;
+	# Execute command in SDK container.
+	docker exec -it sdk dotnet restore ${PROJECT_NAME};
+	exit 0;
 fi
 
 # Start the container if it's stopped or build
