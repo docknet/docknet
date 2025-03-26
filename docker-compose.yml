@@ -43,7 +43,6 @@ services:
 
 volumes:
   postgres-data:
-  latest-build:
 
 networks:
   main-network:

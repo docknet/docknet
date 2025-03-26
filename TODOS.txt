@@ -1,2 +1,2 @@
 1. Upgrade dotnet version.
-3. Implement remaining dotnet commands. (including "tool" and "project modification") --> https://learn.microsoft.com/en-us/dotnet/core/tools/
+2. Implement remaining dotnet commands. --> https://learn.microsoft.com/en-us/dotnet/core/tools/
