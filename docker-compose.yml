@@ -33,6 +33,7 @@ services:
     container_name: sdk
     volumes:
       - .:/app
+      - ./usersecrets/:/root/.microsoft/usersecrets
 
 volumes:
   postgres-data:
