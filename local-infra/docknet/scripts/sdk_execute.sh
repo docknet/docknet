@@ -11,7 +11,7 @@ fi
 # and start it if it doesn't exist.
 if [ ! "$(docker ps -q -f name=sdk)" ]; then
 	echo $'Starting SDK...\n';
-    docker-compose up -d sdk;
+    docker compose --env-file local-infra/.env up -d sdk;
     echo $'\nSDK successfully built!\n';
 fi
 

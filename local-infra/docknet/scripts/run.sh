@@ -21,13 +21,13 @@ fi
 # Build the containers if they do not exist.
 if [ ! "$(docker ps -q -a -f name=server)" ]; then
 	echo $'Building server...\n';
-	docker compose build;
+	docker compose --env-file local-infra/.env build;
 	echo $'\nServer successfully built!\n';
 fi
 
 # The runtime container was not running, start 
 # the whole environment.
 echo $'Starting server...\n';
-docker compose up -d --no-recreate;
+docker compose --env-file local-infra/.env up -d --no-recreate;
 echo $'\nServer started!';
 exit 0;

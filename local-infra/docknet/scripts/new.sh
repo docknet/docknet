@@ -25,7 +25,7 @@ fi
 # Start the container if it's stopped or build
 # and start it if it doesn't exist.
 echo $'Starting SDK...\n';
-docker-compose up -d sdk;
+docker compose --env-file local-infra/.env up -d sdk;
 echo $'\nSDK successfully built!\n';
 # Execute command in SDK container with the received arguments.
 # We need to use double slash because git bash does some non-standard stuff with 
