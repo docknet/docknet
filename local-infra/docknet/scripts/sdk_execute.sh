@@ -2,7 +2,7 @@
 
 # Validate mandatory argument presence.
 if [ -z "$1" ]; then
-	echo $'Missing docknet user-secrets command to execute!\n';
+	echo $'Missing docknet command to execute!\n';
 	echo $'\nFor more information, please refer to the official documentation: https://learn.microsoft.com/en-us/dotnet/core/tools/';
 	exit 1;
 fi
@@ -15,16 +15,15 @@ if [ ! "$(docker ps -q -f name=sdk)" ]; then
     echo $'\nSDK successfully built!\n';
 fi
 
-userSecretsCommand="$1";
+dotnetCommand="dotnet $1";
 # Delete the first parameter that states the dotnet command and has already been taken into account.
 shift;
 
 # Add remaining options to the command execution
 for option in "$@"; do
-    userSecretsCommand+=" ";
-    userSecretsCommand+="$option";
+    dotnetCommand+=" ";
+    dotnetCommand+="$option";
 done
 
-# Add project name at the end, so the container can identify the project.
-docker exec -it sdk dotnet user-secrets ${userSecretsCommand};
+docker exec -it sdk ${dotnetCommand};
 exit 0;

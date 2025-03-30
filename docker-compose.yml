@@ -14,30 +14,23 @@ services:
       - main-network
 
   server:
+    image: 6daniel32/docknet-server
     container_name: server
     build:
       context: .
-      dockerfile: ./local-infra/docknet/containers/Dockerfile.server
-      # When working with docker compose, args are only
-      # avaiable in the build context and not in the runtime.
       args:
         CONFIGURATION: ${CONFIGURATION}
-    # Contrary to args, environment variables are available
-    # in the runtime and not in the build context, that's why 
-    # we need both.
     ports:
       - "5000:8080"
     networks:
       - main-network
 
   sdk:
+    image: 6daniel32/docknet-sdk
     container_name: sdk
-    build:
-      context: .
-      dockerfile: ./local-infra/docknet/containers/Dockerfile.sdk
     volumes:
       - .:/app
-      - ./usersecrets/:/root/.microsoft/usersecrets
+      - ./local-infra/docknet/usersecrets/:/root/.microsoft/usersecrets
 
 volumes:
   postgres-data:

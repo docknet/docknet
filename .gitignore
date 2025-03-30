@@ -1,7 +1,2 @@
-/*
-!.env.example
-!.gitignore
-!docker-compose.yml
-!docknet.sh
-!local-infra/
-!TODOS.txt
+/local-infra/docknet/usersecrets
+.env
