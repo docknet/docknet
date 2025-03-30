@@ -14,18 +14,11 @@ if [ -z "$1" ]; then
 	exit 1;
 fi
 
-# Enable importation of environment variables.
-set -a;
-# Import environment variables.
-source .env;
-# Disable importation of environment variables.
-set +a;
-
 # Check if the sdk is up
 if [ "$(docker ps -q -f name=sdk)" ]; then
 	# Execute command in SDK container with the received arguments
 	# and .env variables.
-	docker exec -it sdk dotnet new $1 --name ${PROJECT_NAME};
+	docker exec -it sdk dotnet new $1
 	exit 0;
 fi
 
@@ -34,7 +27,8 @@ fi
 echo $'Starting SDK...\n';
 docker-compose up -d sdk;
 echo $'\nSDK successfully built!\n';
-# Execute command in SDK container with the received arguments
-# and .env variables.
-docker exec -it sdk dotnet new $1 --name ${PROJECT_NAME};
+# Execute command in SDK container with the received arguments.
+# We need to use double slash because git bash does some non-standard stuff with 
+# path expansion to make things like /bin/sh map back to the Git bash installation directory
+docker exec -it --workdir //app sdk dotnet new $1;
 exit 0;

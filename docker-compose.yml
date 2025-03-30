@@ -22,12 +22,9 @@ services:
       # avaiable in the build context and not in the runtime.
       args:
         CONFIGURATION: ${CONFIGURATION}
-        PROJECT_NAME: ${PROJECT_NAME}
     # Contrary to args, environment variables are available
     # in the runtime and not in the build context, that's why 
     # we need both.
-    environment:
-      - PROJECT_NAME=${PROJECT_NAME}
     ports:
       - "5000:8080"
     networks:

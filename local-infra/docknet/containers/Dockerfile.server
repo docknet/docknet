@@ -1,20 +1,18 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 
 ARG CONFIGURATION
-ARG PROJECT_NAME
 
 WORKDIR /source
 
 # Copy csproj and restore as distinct layers
-COPY ./${PROJECT_NAME}/*.csproj .
+COPY ./*.csproj .
 RUN dotnet restore
 
 # copy and publish app and libraries
-COPY ./${PROJECT_NAME} .
+COPY . .
 RUN dotnet publish \
     --no-restore \
     -c ${CONFIGURATION} \
-    -p:AssemblyName=${PROJECT_NAME} \
     -o /app
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS server
@@ -26,4 +24,4 @@ EXPOSE 8080
 COPY --from=build /app .
 
 # Deploy the latest build (executable file)
-ENTRYPOINT ./${PROJECT_NAME}
+ENTRYPOINT ["dotnet", "app.dll"]

@@ -7,13 +7,6 @@ if [ -z "$1" ]; then
 	exit 1;
 fi
 
-# Enable importation of environment variables.
-set -a;
-# Import environment variables.
-source .env;
-# Disable importation of environment variables.
-set +a;
-
 # Start the container if it's stopped or build
 # and start it if it doesn't exist.
 if [ ! "$(docker ps -q -f name=sdk)" ]; then
@@ -33,8 +26,5 @@ for option in "$@"; do
 done
 
 # Add project name at the end, so the container can identify the project.
-userSecretsCommand+=" --project ";
-userSecretsCommand+=${PROJECT_NAME};
-
 docker exec -it sdk dotnet user-secrets ${userSecretsCommand};
 exit 0;
