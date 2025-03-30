@@ -19,6 +19,9 @@ case $1 in
 	dotnet-ef|ef)
 		echo 'WIP' 
 		;;
+	destroy)
+		source ./local-infra/docknet/scripts/destroy.sh 
+		;;
 	*)
 		source ./local-infra/docknet/scripts/sdk_execute.sh "$@"
 		;;
