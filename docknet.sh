@@ -16,9 +16,6 @@ case $1 in
 	watch)
 		echo 'WIP' 
 		;;
-	dotnet-ef|ef)
-		echo 'WIP' 
-		;;
 	destroy)
 		source ./local-infra/docknet/scripts/destroy.sh 
 		;;

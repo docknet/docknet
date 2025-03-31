@@ -31,6 +31,8 @@ services:
     volumes:
       - .:/app
       - ./local-infra/docknet/usersecrets/:/root/.microsoft/usersecrets
+    networks:
+      - main-network
 
 volumes:
   postgres-data:
