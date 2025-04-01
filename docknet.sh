@@ -14,7 +14,12 @@ case $1 in
 		source ./local-infra/docknet/scripts/new.sh "$@"
 		;;
 	watch)
-		echo 'WIP' 
+		# Delete the first parameter from the script invocation 
+		# ($1="watch")
+		shift
+		# Execute the script with the remaining parameters 
+		# (arguments for "docknet watch")
+		source ./local-infra/docknet/scripts/watch.sh "$@"
 		;;
 	destroy)
 		source ./local-infra/docknet/scripts/destroy.sh 
