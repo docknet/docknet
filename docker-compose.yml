@@ -14,10 +14,10 @@ services:
       - main-network
 
   server:
+    image: 6daniel32/docknet-server
     container_name: server
     build:
       context: .
-      dockerfile: ./local-infra/docknet/containers/Dockerfile.server
       args:
         CONFIGURATION: ${CONFIGURATION}
     ports:
@@ -26,10 +26,8 @@ services:
       - main-network
 
   sdk:
+    image: 6daniel32/docknet-sdk
     container_name: sdk
-    build:
-      context: .
-      dockerfile: ./local-infra/docknet/containers/Dockerfile.sdk
     volumes:
       - .:/app
       - ./local-infra/docknet/usersecrets/:/root/.microsoft/usersecrets
