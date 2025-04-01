@@ -13,16 +13,9 @@ if [ "$(docker ps -q -f name=server)" ]; then
 	# Wait until the server is fully stopped 
 	# before starting again
 	wait ${STOP_RUNTIME_PROCESS_IDENTIFIER}
-	docker start server  > /dev/null;
+	docker start server > /dev/null;
 	echo $'Server restarted!';
 	exit 0;
-fi
-
-# Build the containers if they do not exist.
-if [ ! "$(docker ps -q -a -f name=server)" ]; then
-	echo $'Building server...\n';
-	docker compose --env-file local-infra/.env build;
-	echo $'\nServer successfully built!\n';
 fi
 
 # The runtime container was not running, start 

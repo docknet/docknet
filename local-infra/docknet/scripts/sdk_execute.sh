@@ -11,19 +11,9 @@ fi
 # and start it if it doesn't exist.
 if [ ! "$(docker ps -q -f name=sdk)" ]; then
 	echo $'Starting SDK...\n';
-    docker compose --env-file local-infra/.env up -d sdk;
+    docker compose up -d sdk;
     echo $'\nSDK successfully built!\n';
 fi
 
-dotnetCommand="dotnet $1";
-# Delete the first parameter that states the dotnet command and has already been taken into account.
-shift;
-
-# Add remaining options to the command execution
-for option in "$@"; do
-    dotnetCommand+=" ";
-    dotnetCommand+="$option";
-done
-
-docker exec -it sdk ${dotnetCommand};
+docker exec -it sdk dotnet "$@";
 exit 0;

@@ -1,24 +1,11 @@
 #!/bin/bash
 
-# First parameter will always be the command to execute.
+# First parameter will always be the dotnet command to execute.
 case $1 in
 	run)
 		source ./local-infra/docknet/scripts/run.sh
 		;;
-	new)
-		# Delete the first parameter from the script invocation 
-		# ($1="new")
-		shift
-		# Execute the script with the remaining parameters 
-		# (arguments for "docknet new")
-		source ./local-infra/docknet/scripts/new.sh "$@"
-		;;
 	watch)
-		# Delete the first parameter from the script invocation 
-		# ($1="watch")
-		shift
-		# Execute the script with the remaining parameters 
-		# (arguments for "docknet watch")
 		source ./local-infra/docknet/scripts/watch.sh "$@"
 		;;
 	destroy)
