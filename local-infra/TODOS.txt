@@ -1,4 +1,4 @@
-1. Implement remaining dotnet commands. --> https://learn.microsoft.com/en-us/dotnet/core/tools/
+1. Check TODO in "sdk_execute" script
 2. Test environment with existing project
 3. Once finished, re-tag the containers.
 4. Give support for newer versions.

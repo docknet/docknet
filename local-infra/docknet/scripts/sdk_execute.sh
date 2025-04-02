@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Validate mandatory argument presence.
-if [ -z "$1" ]; then
-	echo $'Missing docknet command to execute!\n';
-	echo $'\nFor more information, please refer to the official documentation: https://learn.microsoft.com/en-us/dotnet/core/tools/';
-	exit 1;
-fi
-
 # Start the container if it's stopped or build
 # and start it if it doesn't exist.
 if [ ! "$(docker ps -q -f name=sdk)" ]; then
@@ -14,6 +7,13 @@ if [ ! "$(docker ps -q -f name=sdk)" ]; then
     docker compose up -d sdk;
     echo $'\nSDK successfully built!\n';
 fi
+
+# TODO: When creating a new dotnet project, we need to ensure that all projects that 
+# allow the "--exclude-launch-settings" flag use it. This is the way to ensure
+# that "dotnet watch" will work since no arbitrary port will be defined.
+#if [ "$1" == 'new' ] && ["$2" == 'worker']; then
+
+#fi
 
 docker exec -it sdk dotnet "$@";
 exit 0;

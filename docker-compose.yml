@@ -13,18 +13,6 @@ services:
     networks:
       - main-network
 
-  server:
-    container_name: server
-    build:
-      context: .
-      dockerfile: ./local-infra/docknet/containers/Dockerfile.server
-      args:
-        CONFIGURATION: ${CONFIGURATION}
-    ports:
-      - "5000:8080"
-    networks:
-      - main-network
-
   sdk:
     container_name: sdk
     build:
@@ -33,6 +21,8 @@ services:
     volumes:
       - .:/app
       - ./local-infra/docknet/usersecrets/:/root/.microsoft/usersecrets
+    ports:
+      - "5000:8080"
     networks:
       - main-network
 
