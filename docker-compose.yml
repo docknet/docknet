@@ -13,24 +13,14 @@ services:
     networks:
       - main-network
 
-  server:
-    image: 6daniel32/docknet-server
-    container_name: server
-    build:
-      context: .
-      args:
-        CONFIGURATION: ${CONFIGURATION}
-    ports:
-      - "5000:8080"
-    networks:
-      - main-network
-
   sdk:
     image: 6daniel32/docknet-sdk
     container_name: sdk
     volumes:
       - .:/app
       - ./local-infra/docknet/usersecrets/:/root/.microsoft/usersecrets
+    ports:
+      - "5000:8080"
     networks:
       - main-network
 
