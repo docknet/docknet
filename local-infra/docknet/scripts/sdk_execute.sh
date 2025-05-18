@@ -16,7 +16,7 @@ fi
 # that no arbitrary port will be defined in the running profiles and 
 # "dotnet watch" will work.
 projects_which_can_exclude_launch_settings=(
-    "worker" "grpc" "blazor" "blazorwasm" "web" "mvc" "webapp" "webapi" "webapiaot"
+    "worker" "grpc" "blazor" "blazorwasm" "web" "mvc" "webapp" "razor" "webapi" "webapiaot"
 );
 
 if [ "$1" == 'new' ] && \
