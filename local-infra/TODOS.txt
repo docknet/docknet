@@ -1,2 +1,0 @@
-1. Test environment with existing project
-2. Think about an alternative for windows that doesn't require using a bash shell.
