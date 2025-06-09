@@ -20,7 +20,7 @@ services:
       dockerfile: ./local-infra/docknet/containers/Dockerfile.sdk
     volumes:
       - .:/app
-      - ./local-infra/docknet/usersecrets/:/root/.microsoft/usersecrets
+      - ./local-infra/usersecrets/:/root/.microsoft/usersecrets
     ports:
       - "5000:8080"
     networks:
